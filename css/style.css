@@ -138,6 +138,7 @@ a.more {
   position: relative;
   z-index: 4;
   text-align: center;
+  height: 160px;
 }
 @media (min-width: 992px) {
   .hero .intro-excerpt {
@@ -147,21 +148,18 @@ a.more {
 .hero h1 {
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 @media (min-width: 1400px) {
   .hero h1 {
-    font-size: 54px;
+    font-size: 50px;
   }
 }
 .hero p {
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-.hero .hero-img-wrap {
-  position: relative;
-  top: -10px;
-}
+
 .hero .hero-img-wrap img {
   position: relative;
   /* bottom: 20px; */
