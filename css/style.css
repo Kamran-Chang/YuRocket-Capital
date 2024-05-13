@@ -44,10 +44,7 @@ a.more {
   font-size: 32px;
   font-weight: 600;
 }
-.navbar1 {
-  position: relative;
-  /* top: -5px; */
-}
+
 .custom-navbar .navbar-brand > span {
   opacity: 0.4;
 }
