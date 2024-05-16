@@ -70,7 +70,7 @@
   sitePlusMinus();
 })();
 let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("nav div ul li");
+let navLinks = document.querySelectorAll("nav div ul li a");
 window.onscroll = () => {
   sections.forEach((sec) => {
     let top = window.scrollY;
@@ -80,7 +80,9 @@ window.onscroll = () => {
     if (top >= offset && top < offset + height) {
       navLinks.forEach((links) => {
         links.classList.remove("active");
-        document.querySelector("nav div ul li").classList.add("active");
+        document
+          .querySelector("nav div ul li a [href*=" + id + "]")
+          .classList.add("active");
       });
     }
   });
