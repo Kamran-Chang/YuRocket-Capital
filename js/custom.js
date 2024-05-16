@@ -70,24 +70,60 @@
   sitePlusMinus();
 })();
 
-window.addEventListener("scroll", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("nav div ul li a");
 
-  let top = window.scrollY;
+  // Function to remove active class from all nav links
+  const removeActiveClasses = () => {
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+    });
+  };
 
-  sections.forEach((sec) => {
-    let offset = sec.offsetTop;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute("id");
+  // Function to handle scroll event
+  const handleScroll = () => {
+    let top = window.scrollY + window.innerHeight / 2; // Adjusted to consider half the viewport height
 
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(id)) {
-          link.classList.add("active");
+    sections.forEach((sec) => {
+      let offset = sec.offsetTop;
+      let height = sec.offsetHeight;
+      let id = sec.getAttribute("id");
+
+      if (top >= offset && top < offset + height) {
+        removeActiveClasses();
+        const activeLink = document.querySelector(
+          `nav div ul li a[href="#${id}"]`
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
         }
+      }
+    });
+  };
+
+  // Add scroll event listener
+  window.addEventListener("scroll", handleScroll);
+
+  // Function to handle click event
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      removeActiveClasses();
+      event.currentTarget.classList.add("active");
+
+      // Optional: Smooth scroll to section
+      const targetId = event.currentTarget.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: "smooth",
       });
-    }
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+    });
   });
+
+  // Initial call to set active class based on initial scroll position
+  handleScroll();
 });
