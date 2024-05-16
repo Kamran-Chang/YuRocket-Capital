@@ -19,6 +19,9 @@ body {
   font-size: 14px;
   background-color: #eff2f1;
 }
+.d-flex {
+  gap: 20px;
+}
 
 a {
   text-decoration: none;
