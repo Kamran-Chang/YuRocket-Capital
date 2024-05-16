@@ -86,6 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleScroll = () => {
     let top = window.scrollY + window.innerHeight / 2; // Adjusted to consider half the viewport height
 
+    // Check if we are at the top of the page and activate the Home link
+    if (window.scrollY === 0) {
+      removeActiveClasses();
+      document
+        .querySelector("nav div ul li a[href='index.html']")
+        .parentElement.classList.add("active");
+      return; // Exit the function early since we have handled the top case
+    }
+
     sections.forEach((sec) => {
       let offset = sec.offsetTop;
       let height = sec.offsetHeight;
