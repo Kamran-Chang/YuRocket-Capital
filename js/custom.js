@@ -72,12 +72,13 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
+  const navItems = document.querySelectorAll("nav div ul li");
   const navLinks = document.querySelectorAll("nav div ul li a");
 
-  // Function to remove active class from all nav links
+  // Function to remove active class from all nav items
   const removeActiveClasses = () => {
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
+    navItems.forEach((item) => {
+      item.classList.remove("active");
     });
   };
 
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `nav div ul li a[href="#${id}"]`
         );
         if (activeLink) {
-          activeLink.classList.add("active");
+          activeLink.parentElement.classList.add("active");
         }
       }
     });
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       removeActiveClasses();
-      event.currentTarget.classList.add("active");
+      event.currentTarget.parentElement.classList.add("active");
 
       // Optional: Smooth scroll to section
       const targetId = event.currentTarget.getAttribute("href").substring(1);
