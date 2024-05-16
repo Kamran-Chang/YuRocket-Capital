@@ -21,6 +21,8 @@ body {
 }
 .d-flex {
   gap: 20px;
+  row-gap: 40px;
+  /* background-color: green; */
 }
 
 a {
