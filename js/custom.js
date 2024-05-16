@@ -137,27 +137,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial call to set active class based on initial scroll position
   handleScroll();
 });
-
-function sendEmail() {
-  const fname = document.getElementById("fname").value;
-  const lname = document.getElementById("lname").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  const templateParams = {
-    from_name: `${fname} ${lname}`,
-    from_email: email,
-    message: message,
-  };
-
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams).then(
-    (response) => {
-      console.log("SUCCESS!", response.status, response.text);
-      alert("Message sent successfully!");
-    },
-    (error) => {
-      console.error("FAILED...", error);
-      alert("Failed to send message. Please try again.");
-    }
-  );
-}
