@@ -80,6 +80,7 @@ window.onscroll = () => {
     if (top >= offset && top < offset + height) {
       navLinks.forEach((links) => {
         links.classList.remove("active");
+        document.querySelector("nav div ul li").classList.add("active");
       });
     }
   });
