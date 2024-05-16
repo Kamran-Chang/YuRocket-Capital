@@ -69,6 +69,7 @@
   };
   sitePlusMinus();
 })();
+
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("nav div ul li a");
