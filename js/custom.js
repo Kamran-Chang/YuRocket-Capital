@@ -129,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth",
       });
 
-      // Prevent default anchor click behavior
       event.preventDefault();
     });
   });
